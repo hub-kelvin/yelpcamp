@@ -1,0 +1,32 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.jumbotron {
+  margin-top: 25px;
+}
+
+img {
+  height: 300px;
+}
+
+.block {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.deleteForm {
+  /*border: 10px solid red;*/
+  display: inline;
+}
+#deleteForm {
+  display: inline;
+}
+.btn-del {
+  padding: 0;
+  border: none;
+  color: red;
+  background: none;
+}

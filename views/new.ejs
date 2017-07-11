@@ -1,0 +1,18 @@
+<% include partials/header.ejs %>
+
+<h1 class="text-center">Create New Campground</h1>
+<br>
+<div class="block">
+  <form action="/campgrounds" method="post">
+    <input type="text" name="name" placeholder="Camp name" class="form-control">
+    <input type="text" name="image" placeholder="Image Url" class="form-control">
+    <input type="text" name="description" placeholder="Description" class="form-control">
+    <br>
+    <button type="submit" name="button" class="btn btn-primary btn-block">Add Camp</button>
+  </form>
+</div>
+
+<br>
+<a class="text-center" href="/campgrounds">Go Back</a>
+<br>
+<% include partials/footer.ejs %>

@@ -1,0 +1,27 @@
+<% include ../partials/header.ejs %>
+<h1><%= foundData.name %></h1>
+<img src="<%=foundData.image%>" alt="">
+<p><%= foundData.description %></p>
+<p><em>Submitted By - </em><i><%= foundData.author.username %></i></p>
+<% if(currentUser && foundData.author.id.equals(currentUser._id)) { %>
+<a href="/campgrounds/<%= foundData._id %>/edit" class="btn btn-warning">Edit</a>
+<form id="deleteForm" action="/campgrounds/<%= foundData._id %>?_method=delete" method="post" style="display: inline;">
+  <!-- <a href="/campgrounds/<%= foundData._id %>/edit" class="btn btn-danger">Delete</a> -->
+  <button type="submit" name="button"class="btn btn-danger">Delete</button>
+
+</form>
+<% } %>
+<% foundData.comments.forEach(function(camp){ %>
+  <p><%= camp.text %> - <strong><%= camp.author.username %></strong>
+    <% if(currentUser && camp.author.id.equals(currentUser._id)) { %>
+  <a href="/campgrounds/<%=foundData._id%>/comments/<%= camp._id %>/edit">Edit</a>
+  <form id="deleteForm" action="/campgrounds/<%=foundData._id%>/comments/<%= camp._id %>?_method=DELETE" method="post">
+  <button type="submit" name="button" class="btn btn-xs btn-danger btn-del">Delete</button>
+  </form>
+  <%}%>  
+ </p>
+
+<%})%>
+<p><a href='/campgrounds/<%= foundData._id %>/comments/new' class="btn green">Add a comment</a></p>
+<p><a href="/campgrounds">Go Back</a></p>
+<% include ../partials/footer.ejs %>
