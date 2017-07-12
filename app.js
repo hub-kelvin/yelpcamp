@@ -19,6 +19,8 @@ mongoose.Promise = require('bluebird')
 // mongoose.Promise = global.Promise;
 // assert.equal(query.exec().constructor, global.Promise);
 
+var port= process.env.PORT || 3000
+
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static('public/css'))
@@ -53,7 +55,7 @@ app.get('*',function(req,res){
   res.send("The page you're looking for is not found")
 })
 
-app.listen(3000,function(){
+app.listen(port,function(){
   console.log('Camping has started')
 })
 
